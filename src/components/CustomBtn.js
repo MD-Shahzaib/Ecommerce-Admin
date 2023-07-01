@@ -1,19 +1,37 @@
 import { Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const CustomBtn = ({ title, width, height, backgroundColor, borderRadius, elevation, color, fontSize, fontWeight }) => {
+const CustomBtn = ({ onClick, title, textWidth, width, height, bgColor, borderRadius, elevation, fontColor, fontSize, fontWeight, my, mx, mt, mb, mr, ml, py, px, pt, pb, pr, pl, textBgColor, textCenter, alignSelf }) => {
     return (
-        <TouchableOpacity style={{
-            width: width,
-            height: height,
-            backgroundColor: backgroundColor,
-            borderRadius: borderRadius,
-            elevation: elevation
-        }}>
+        <TouchableOpacity
+            onPress={() => onClick()}
+            style={{
+                width: width,
+                height: height,
+                alignSelf: alignSelf,
+                backgroundColor: bgColor,
+                borderRadius: borderRadius,
+                elevation: elevation,
+                marginVertical: my,
+                marginHorizontal: mx,
+                marginTop: mt,
+                marginRight: mr,
+                marginBottom: mb,
+                marginLeft: ml,
+                paddingVertical: py,
+                paddingHorizontal: px,
+                paddingTop: pt,
+                paddingRight: pr,
+                paddingBottom: pb,
+                paddingLeft: pl,
+            }}>
             <Text style={{
-                color: color,
+                color: fontColor,
                 fontSize: fontSize,
                 fontWeight: fontWeight,
+                width: textWidth,
+                backgroundColor: textBgColor,
+                textAlign: textCenter
             }}>{title}</Text>
         </TouchableOpacity>
     )

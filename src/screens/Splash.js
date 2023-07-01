@@ -1,17 +1,14 @@
 import React, { useEffect } from 'react';
-import { Dimensions, Image, StatusBar, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, StatusBar, StyleSheet, Text, View } from 'react-native';
 // UTILITIES.
 import { BTN_PRIMARY, TEXT_LIGHT, THEME_COLOR } from '../utilities/Color';
+// COMPONENTS.
 import CustomBtn from '../components/CustomBtn';
 
 const Splash = ({ navigation }) => {
 
     // Splash Effect.
-    useEffect(() => {
-        setTimeout(() => {
-            navigation.navigate("Signup");
-        }, 3000)
-    }, [])
+    useEffect(() => { setTimeout(() => navigation.navigate("login"), 3000) }, []);
 
     return (
         <View style={styles.Container}>
@@ -19,21 +16,20 @@ const Splash = ({ navigation }) => {
             <Image style={styles.AppLogo} source={require("../assets/appLogo.png")} />
             <Text style={styles.Logo}>MS-STORE</Text>
             <Text style={styles.status}>(Admin)</Text>
-            <TouchableOpacity
-                style={styles.StartBtn}
-                onPress={() => navigation.navigate("Signup")}>
-                <Text style={styles.BtnText}>Get Started</Text>
-            </TouchableOpacity>
             <CustomBtn
+                onClick={() => navigation.navigate("login")}
                 title={"Get Started"}
-            // width={ }
-            // height={ }
-            // backgroundColor={ }
-            // borderRadius={ }
-            // elevation={ }
-            // color={ }
-            // fontSize={ }
-            // fontWeight={ }
+                borderRadius={10}
+                bgColor={BTN_PRIMARY}
+                elevation={3}
+                mt={30}
+                py={10}
+                px={50}
+                textWidth={110}
+                fontColor={TEXT_LIGHT}
+                fontSize={20}
+                fontWeight={"700"}
+                textCenter={"center"}
             />
         </View>
     )
@@ -47,6 +43,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: THEME_COLOR,
+        // backgroundColor: "#53c3f7",
     },
     AppLogo: {
         width: Dimensions.get('screen').width - 20,
@@ -67,20 +64,4 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         textAlign: 'center',
     },
-    StartBtn: {
-        backgroundColor: BTN_PRIMARY,
-        textAlign: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 50,
-        borderRadius: 10,
-        marginTop: 30,
-        elevation: 3
-    },
-    BtnText: {
-        fontSize: 20,
-        fontWeight: '700',
-        width: 110,
-        textAlign: 'center',
-        color: TEXT_LIGHT,
-    }
 });
