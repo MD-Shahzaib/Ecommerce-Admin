@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "923886413588",
+    "project_id": "ms-store-admin",
+    "storage_bucket": "ms-store-admin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923886413588:android:08c7d295f1084c2df2c401",
+        "android_client_info": {
+          "package_name": "com.shopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923886413588-69k0dhtkn3v2hvb33rpebtk2kivpai3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIj0Aje_5aWift5PaSJasw7VSJF948y6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923886413588-69k0dhtkn3v2hvb33rpebtk2kivpai3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

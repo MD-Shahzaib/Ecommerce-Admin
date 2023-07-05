@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, TextInput } from 'react-native'
 
-const CustomInput = ({ placeholder, type, width, height, bgColor, borderRadius, borderWidth, alignSelf, borderColor, elevation, fontColor, fontSize, fontWeight, my, mx, mt, mb, mr, ml, py, px, pt, pb, pr, pl }) => {
+const CustomInput = ({ value, onchangeText, placeholder, type, width, height, bgColor, borderRadius, borderWidth, alignSelf, borderColor, elevation, fontColor, fontSize, fontWeight, my, mx, mt, mb, mr, ml, py, px, pt, pb, pr, pl }) => {
     return (
         <View
             style={{
@@ -29,6 +29,10 @@ const CustomInput = ({ placeholder, type, width, height, bgColor, borderRadius, 
         >
             <TextInput
                 style={{ color: fontColor, fontSize: fontSize, fontWeight: fontWeight }}
+                value={value}
+                onChangeText={txt => {
+                    onchangeText(txt);
+                }}
                 placeholder={placeholder}
                 keyboardType={type ? type : 'default'}
             />
