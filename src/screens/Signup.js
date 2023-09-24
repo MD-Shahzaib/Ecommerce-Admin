@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert } fr
 import { useNavigation } from '@react-navigation/native';
 // FIREBASE.
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 // UTILITIES.
 import { BG_LIGHT, BTN_PRIMARY, TEXT_LIGHT, TEXT_PRIMARY } from '../utilities/Color';
 // COMPONENTS.
@@ -17,22 +18,11 @@ const Signup = () => {
     const navigation = useNavigation();
 
     // States.
+    const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
-
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        // Simulating a loading delay
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-    }, []);
-
-    if (isLoading) {
-        return <Loader />;
-    }
 
     // Create_Admin.
     const handleSignUp = () => {
@@ -50,7 +40,19 @@ const Signup = () => {
                 }
                 console.error(error, email, password);
             });
+        // after Register save user into db. using firestore. 
     };
+
+    useEffect(() => {
+        // Simulating a loading delay
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, []);
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <View style={styles.Container}>
